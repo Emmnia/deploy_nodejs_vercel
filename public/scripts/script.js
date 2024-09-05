@@ -73,7 +73,7 @@ function autocomplete(inp, arr) {
 
 let names = [];
 
-fetch("/api/")
+fetch("/api/characters")
   .then((res) => res.json())
   .then((characters) => {
     characters.forEach((character) => {
@@ -96,7 +96,7 @@ const renderCard = () => {
   cardContainer.style.backgroundPosition = "center center";
   cardContainer.style.backgroundRepeat = "no-repeat";
 
-  fetch("/api/")
+  fetch("/api/characters")
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -171,7 +171,7 @@ myInput.addEventListener("focus", () => {
 const randomButton = document.getElementById("random");
 
 const showSoul = () => {
-  fetch("/api/")
+  fetch("/api/characters")
     .then(response => response.json().then(array => {
       let randomItem = array[Math.floor(Math.random() * array.length)]
 
