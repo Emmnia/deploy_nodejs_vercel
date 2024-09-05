@@ -2,7 +2,7 @@
   "name": "deploy_nodejs_vercel",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
