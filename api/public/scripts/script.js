@@ -73,7 +73,7 @@ function autocomplete(inp, arr) {
 
 let names = [];
 
-fetch("/")
+fetch("app.js")
   .then((res) => res.json())
   .then((characters) => {
     characters.forEach((character) => {
