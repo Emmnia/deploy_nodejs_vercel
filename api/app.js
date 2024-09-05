@@ -21,7 +21,7 @@ function loadData() {
 
 let characters = loadData();
 
-app.get("/", function (_, res) {
+app.get("/api", function (_, res) {
     res.send(characters);
 });
 
