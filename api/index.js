@@ -2,14 +2,8 @@ import http from 'http';
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
-
 const dataFilePath = path.join(__dirname, "data.json");
-
-// Create a server object
-const server = http.createServer((req, res) => {
-    // Set the response header
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-});
+const server = http.createServer();
 
 server.use(cors());
 
