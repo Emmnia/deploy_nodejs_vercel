@@ -1,11 +1,12 @@
-import http from 'http';
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
 const dataFilePath = path.join(__dirname, "data.json");
-const server = http.createServer();
+const express = require("express");
+const app = express();
 
-server.use(cors());
+app.use(cors());
+app.use(express.json());
 
 function loadData() {
     if (fs.existsSync(dataFilePath)) {
@@ -15,16 +16,34 @@ function loadData() {
     return [];
 }
 
+// Загрузка данных при старте сервера
 let characters = loadData();
 
-server.get("/api/data.json", function (_, res) {
+// вспомогательная функция для поиска индекса персонажа по id
+function findCharacterIndexById(id) {
+    for (let i = 0; i < characters.length; i++) {
+        if (characters[i].id == id) return i;
+    }
+    return -1;
+}
+
+app.get("/api/characters", function (_, res) {
     res.send(characters);
 });
 
-// Define the port to listen on
-const port = 3000;
-
-// Start the server
-server.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+// получение одного персонажа по id
+app.get("/api/characters/:id", function (req, res) {
+    const id = req.params.id;
+    const index = findCharacterIndexById(id);
+    if (index > -1) {
+        res.send(characters[index]);
+    } else {
+        res.status(404).send("Character not found");
+    }
 });
+
+app.listen(3000, function () {
+    console.log("Сервер ожидает подключения...");
+});
+
+module.exports = app;

