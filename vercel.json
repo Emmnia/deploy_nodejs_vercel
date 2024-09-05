@@ -1,1 +1,1 @@
-{ "version": 2, "rewrites": [{ "source": "http://localhost:3000/api/characters", "destination": "/api" }] }
+{ "version": 2, "rewrites": [{ "source": "/", "destination": "/api" }] }
