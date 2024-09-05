@@ -16,18 +16,9 @@ function loadData() {
     return [];
 }
 
-// Загрузка данных при старте сервера
 let characters = loadData();
 
-// вспомогательная функция для поиска индекса персонажа по id
-function findCharacterIndexById(id) {
-    for (let i = 0; i < characters.length; i++) {
-        if (characters[i].id == id) return i;
-    }
-    return -1;
-}
-
-app.get("/api", function (_, res) {
+app.get("/", function (_, res) {
     res.send(characters);
 });
 
